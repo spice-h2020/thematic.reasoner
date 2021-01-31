@@ -11,3 +11,5 @@ buildNumber.properties
 .mvn/wrapper/maven-wrapper.jar
 src/.DS_Store
 src/main/.DS_Store
+/.classpath
+/.project
