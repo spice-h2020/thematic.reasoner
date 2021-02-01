@@ -1,4 +1,4 @@
-package com.github.spiceh2020.topicreasoner;
+package com.github.spiceh2020.thematicreasoner;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -21,9 +21,9 @@ import org.apache.jena.riot.RDFDataMgr;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class TopicalReasoner {
+public class ThematicReasoner {
 
-	private static Logger logger = LoggerFactory.getLogger(TopicalReasoner.class);
+	private static Logger logger = LoggerFactory.getLogger(ThematicReasoner.class);
 
 	private static final String SELECT_CP = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX DUL: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> SELECT DISTINCT ?ass {?cp a/rdfs:subClassOf* <https://w3id.org/arco/ontology/arco/CulturalProperty> ; DUL:associatedWith ?ass . FILTER (strStarts(str(?ass), \"http://dbpedia\")) }";
 
@@ -33,7 +33,7 @@ public class TopicalReasoner {
 			Configuration config = configs.properties("config.properties");
 
 			Model m = ModelFactory.createDefaultModel();
-			RDFDataMgr.read(m, "https://raw.githubusercontent.com/spice-h2020/SON/main/issues/31/example.ttl");
+			RDFDataMgr.read(m, "/Users/lgu/workspace/spice/SON/issues/31/example.ttl");
 			RDFDataMgr.read(m, "https://w3id.org/arco/ontology/arco", Lang.RDFXML);
 
 			logger.info("Size {}", m.size());
@@ -46,7 +46,7 @@ public class TopicalReasoner {
 
 			Map<String, Set<String>> topics = new HashMap<>();
 
-			DBPediaBasedTopicDetector td = new DBPediaBasedTopicDetector();
+			DBPediaBasedThemeDetector td = new DBPediaBasedThemeDetector();
 
 			while (rs.hasNext()) {
 				QuerySolution qs = (QuerySolution) rs.next();
@@ -54,6 +54,8 @@ public class TopicalReasoner {
 				Set<String> r = td.detectTopics(iri);
 				maximalSetOfTopics.addAll(r);
 				topics.put(iri, r);
+				if(r.contains("http://dbpedia.org/resource/Category:Weapons"))
+					System.out.println(iri+" has weapons");
 			}
 			qexec.close();
 

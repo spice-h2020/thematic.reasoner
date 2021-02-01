@@ -1,8 +1,8 @@
-package com.github.spiceh2020.topicreasoner;
+package com.github.spiceh2020.thematicreasoner;
 
 import java.util.Set;
 
-public interface TopicDetector {
+public interface ThemeDetector {
 	
 	/**
 	 * Retrieve a list of topics associated to a give IRI

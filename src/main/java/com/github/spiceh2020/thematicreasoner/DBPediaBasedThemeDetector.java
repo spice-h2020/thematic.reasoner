@@ -1,4 +1,4 @@
-package com.github.spiceh2020.topicreasoner;
+package com.github.spiceh2020.thematicreasoner;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -9,7 +9,7 @@ import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 
-public class DBPediaBasedTopicDetector implements TopicDetector {
+public class DBPediaBasedThemeDetector implements ThemeDetector {
 
 	private static final String GET_CATEGORIES = "SELECT DISTINCT ?category { ?iri <http://purl.org/dc/terms/subject> ?category . }";
 	private static final String GET_BROADER_CATEGORIES = "PREFIX skos: <http://www.w3.org/2004/02/skos/core#> SELECT DISTINCT ?category { ?iri skos:broader{0,2} ?category . }";
