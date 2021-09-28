@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.github.spiceh2020</groupId>
@@ -23,6 +25,8 @@
 					<target>11</target>
 				</configuration>
 			</plugin>
+
+
 		</plugins>
 
 	</build>
@@ -107,127 +111,130 @@
 			</build>
 		</profile>
 
-			<profile>
-				<id>build-jar</id>
-				<activation>
-					<property>
-						<name>buildJAR</name>
-						<value>true</value>
-					</property>
-				</activation>
-				<build>
-					<plugins>
-						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-compiler-plugin</artifactId>
-							<version>3.8.0</version>
-							<configuration>
-								<release>11</release>
-							</configuration>
-						</plugin>
+		<profile>
+			<id>build-jar</id>
+			<activation>
+				<property>
+					<name>buildJAR</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.8.0</version>
+						<configuration>
+							<release>11</release>
+						</configuration>
+					</plugin>
 
-						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-shade-plugin</artifactId>
-							<version>2.4.3</version>
-							<executions>
-								<execution>
-									<id>topical.reasoner</id>
-									<configuration>
-										<outputFile>target/topical.reasoner-${project.version}.jar</outputFile>
-										<shadedArtifactAttached>false</shadedArtifactAttached>
-										<transformers>
-											<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-												<mainClass>com.github.spiceh2020.App</mainClass>
-											</transformer>
-											<transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-											<transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer"/>
-											<transformer implementation="org.apache.maven.plugins.shade.resource.ApacheNoticeResourceTransformer">
-												<addHeader>false</addHeader>
-											</transformer>
-										</transformers>
-										<filters>
-											<filter>
-												<artifact>*:*</artifact>
-												<excludes>
-													<exclude>META-INF/*.SF</exclude>
-													<exclude>META-INF/*.DSA</exclude>
-													<exclude>META-INF/*.RSA</exclude>
-												</excludes>
-											</filter>
-										</filters>
-										<!-- Additional configuration. -->
-									</configuration>
-									<phase>package</phase>
-									<goals>
-										<goal>shade</goal>
-									</goals>
-								</execution>
-							</executions>
-						</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-shade-plugin</artifactId>
+						<version>2.4.3</version>
+						<executions>
+							<execution>
+								<id>thematic.reasoner</id>
+								<configuration>
+									<outputFile>target/thematic.reasoner-ex-${project.version}.jar</outputFile>
+									<shadedArtifactAttached>false</shadedArtifactAttached>
+									<transformers>
+										<transformer
+											implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+											<mainClass>com.github.spiceh2020.thematicreasoner.cli.ThematicReasonerCLI</mainClass>
+										</transformer>
+										<transformer
+											implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
+										<transformer
+											implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer" />
+										<transformer
+											implementation="org.apache.maven.plugins.shade.resource.ApacheNoticeResourceTransformer">
+											<addHeader>false</addHeader>
+										</transformer>
+									</transformers>
+									<filters>
+										<filter>
+											<artifact>*:*</artifact>
+											<excludes>
+												<exclude>META-INF/*.SF</exclude>
+												<exclude>META-INF/*.DSA</exclude>
+												<exclude>META-INF/*.RSA</exclude>
+											</excludes>
+										</filter>
+									</filters>
+								</configuration>
+								<phase>package</phase>
+								<goals>
+									<goal>shade</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
 
-					</plugins>
-				</build>
-			</profile>
+				</plugins>
+			</build>
+		</profile>
 
-		</profiles>
+	</profiles>
 
-		<dependencies>
+	<dependencies>
 
-			<dependency>
-				<groupId>junit</groupId>
-				<artifactId>junit</artifactId>
-				<version>4.13.1</version>
-				<scope>test</scope>
-			</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13.1</version>
+			<scope>test</scope>
+		</dependency>
 
-			<!-- Apache Jena -->
-			<dependency>
-				<groupId>org.apache.jena</groupId>
-				<artifactId>apache-jena-libs</artifactId>
-				<type>pom</type>
-				<version>3.16.0</version>
+		<!-- Apache Jena -->
+		<dependency>
+			<groupId>org.apache.jena</groupId>
+			<artifactId>apache-jena-libs</artifactId>
+			<type>pom</type>
+			<version>3.16.0</version>
 
-				<exclusions>
-					<exclusion>
-						<groupId>org.slf4j</groupId>
-						<artifactId>jcl-over-slf4j</artifactId>
-					</exclusion>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>jcl-over-slf4j</artifactId>
+				</exclusion>
 
-					<exclusion>
-						<groupId>com.fasterxml.jackson.core</groupId>
-						<artifactId>jackson-core</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>com.fasterxml.jackson.core</groupId>
-						<artifactId>jackson-databind</artifactId>
-					</exclusion>
-				</exclusions>
-			</dependency>
+				<exclusion>
+					<groupId>com.fasterxml.jackson.core</groupId>
+					<artifactId>jackson-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.fasterxml.jackson.core</groupId>
+					<artifactId>jackson-databind</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 
-			<!-- Commons configuration -->
-			<dependency>
-				<groupId>org.apache.commons</groupId>
-				<artifactId>commons-configuration2</artifactId>
-				<version>2.1.1</version>
-			</dependency>
-			<dependency>
-				<groupId>commons-beanutils</groupId>
-				<artifactId>commons-beanutils</artifactId>
-				<version>1.9.3</version>
-			</dependency>
+		<!-- Commons configuration -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-configuration2</artifactId>
+			<version>2.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.9.3</version>
+		</dependency>
 
-			<!-- Logging LOG4J - SLF4J -->
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-log4j12</artifactId>
-				<version>1.7.7</version>
-			</dependency>
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-api</artifactId>
-				<version>1.7.7</version>
-			</dependency>
+		<!-- Logging LOG4J - SLF4J -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.7</version>
+		</dependency>
 
-		</dependencies>
-	</project>
+	</dependencies>
+</project>
