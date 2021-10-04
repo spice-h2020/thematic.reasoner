@@ -4,9 +4,11 @@ The Thematic Reasoner is a tool able to deduce the main thematic subject of a co
 Specifically, by exploiting the alignments of an entity with DBpedia the tool is able to retrieve the main subject of an entity.
 Then, the topological organization of the entities into zones is used to associate zones with thematic subjects.
 
+
 ## Example
 
 Consider the following exhibition of the Hecht museum. The exhibition involves 9 artworks localized in different 6 areas of the museum.
+Each area is located within a roob of the building (e.g. the "Bust of Hecht" is located in "Bust of Hecht" area which is an area of the "Entrance" room).
 
 |        Room       |       Area      |           Artwork          |                              Wikipedia                             |
 |:-----------------:|:---------------:|:--------------------------:|:------------------------------------------------------------------:|
