@@ -7,8 +7,8 @@ Then, the topological organization of the entities into zones is used to associa
 
 ## Example
 
-Consider the following exhibition of the Hecht museum. The exhibition involves 9 artworks localized in different 6 areas of the museum.
-Each area is located within a roob of the building (e.g. the "Bust of Hecht" is located in "Bust of Hecht" area which is an area of the "Entrance" room).
+Consider the following exhibition of the Hecht Museum. The exhibition involves 9 artworks localized in different 6 areas of the museum.
+Each area is located within a room of the building (e.g. the "Bust of Hecht" is located in "Bust of Hecht" area which is an area of the "Entrance" room).
 
 |        Room       |       Area      |           Artwork          |                              Wikipedia                             |
 |:-----------------:|:---------------:|:--------------------------:|:------------------------------------------------------------------:|
