@@ -14,3 +14,10 @@ src/main/.DS_Store
 /.classpath
 /.project
 /log/
+/.idea/.gitignore
+/.idea/compiler.xml
+/.idea/jarRepositories.xml
+/.idea/misc.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/uiDesigner.xml
+/.idea/vcs.xml
