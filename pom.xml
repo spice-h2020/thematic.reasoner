@@ -188,12 +188,39 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>it.cnr.istc.stlab</groupId>
+			<artifactId>edwin</artifactId>
+			<version>0.1.0-DEV</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.jena</groupId>
+					<artifactId>apache-jena-libs</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.jena</groupId>
+					<artifactId>jena-arq</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.jena</groupId>
+					<artifactId>jena-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.jena</groupId>
+					<artifactId>jena-iri</artifactId>
+				</exclusion>
+
+			</exclusions>
+		</dependency>
+
+
+
 		<!-- Apache Jena -->
 		<dependency>
 			<groupId>org.apache.jena</groupId>
 			<artifactId>apache-jena-libs</artifactId>
 			<type>pom</type>
-			<version>3.16.0</version>
+			<version>4.2.0</version>
 
 			<exclusions>
 				<exclusion>

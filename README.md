@@ -10,18 +10,18 @@ Then, the topological organization of the entities into zones is used to associa
 Consider the following exhibition of the Hecht Museum. The exhibition involves 9 artworks localized in different 6 areas of the museum.
 Each area is located within a room of the building (e.g. the "Bust of Hecht" is located in "Bust of Hecht" area which is an area of the "Entrance" room).
 
-|        Room       |       Area      |           Artwork          |                              Wikipedia                             |
+|       Room        |      Area       |           Artwork          |                              Wikipedia                             |
 |:-----------------:|:---------------:|:--------------------------:|:------------------------------------------------------------------:|
-| Entrance          | Bust of Hecht   | Bust of Hecht              | https://en.wikipedia.org/wiki/Reuben_Hecht                         |
+|     Entrance      |  Bust of Hecht  |       Bust of Hecht        | https://en.wikipedia.org/wiki/Reuben_Hecht                         |
 | Galilee Rebellion |                 |                            |                                                                    |
-|                   | Ventrina xx     | Arrows                     | https://en.wikipedia.org/wiki/Gamla                                |
+|                   |   Ventrina xx   | Arrows                     | https://en.wikipedia.org/wiki/Gamla                                |
 |                   |                 | Catapult                   | https://en.wikipedia.org/wiki/Catapult                             |
-|                   | Portraits       | Portrait of Joseph Flavius | https://en.wikipedia.org/wiki/Josephus                             |
+|                   |    Portraits    | Portrait of Joseph Flavius | https://en.wikipedia.org/wiki/Josephus                             |
 |                   |                 | Portrait of Berniece       | https://en.wikipedia.org/wiki/Berenice_(daughter_of_Herod_Agrippa) |
-|                   | Ventrina zz     | Roman war gear             | https://en.wikipedia.org/wiki/Legionary                            |
+|                   |   Ventrina zz   | Roman war gear             | https://en.wikipedia.org/wiki/Legionary                            |
 |                   |                 | Head of Vespian            | https://en.wikipedia.org/wiki/Vespasian                            |
-| Main Hall         | Ventrina yy     | Bar Kochva Rebellion       | https://en.wikipedia.org/wiki/Bar_Kokhba_revolt                    |
-| Corridor          | Jerusalem Photo | Jerusalem Photo            | https://en.wikipedia.org/wiki/Jerusalem                            |
+|     Main Hall     |   Ventrina yy   | Bar Kochva Rebellion       | https://en.wikipedia.org/wiki/Bar_Kokhba_revolt                    |
+|     Corridor      | Jerusalem Photo | Jerusalem Photo            |              https://en.wikipedia.org/wiki/Jerusalem               |
 
 *TODO*
 

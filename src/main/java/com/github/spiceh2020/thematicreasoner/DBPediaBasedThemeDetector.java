@@ -12,7 +12,7 @@ import org.apache.jena.query.ResultSet;
 public class DBPediaBasedThemeDetector implements ThemeDetector {
 
 	private static final String GET_CATEGORIES = "SELECT DISTINCT ?category { ?iri <http://purl.org/dc/terms/subject> ?category . }";
-	private static final String GET_BROADER_CATEGORIES = "PREFIX skos: <http://www.w3.org/2004/02/skos/core#> SELECT DISTINCT ?category { ?iri skos:broader{0,2} ?category . }";
+	private static final String GET_BROADER_CATEGORIES = "PREFIX skos: <http://www.w3.org/2004/02/skos/core#> SELECT DISTINCT ?category { ?iri skos:broader ?category . }";
 	public static final String DBPEDIA_ENDPOINT = "http://dbpedia.org/sparql";
 
 	@Override
@@ -36,6 +36,11 @@ public class DBPediaBasedThemeDetector implements ThemeDetector {
 		qexec.close();
 
 		return result;
+	}
+
+	@Override
+	public void setDistance(int distance) {
+		throw new UnsupportedOperationException();
 	}
 
 	private Set<String> getBroaderCategories(String iri) {

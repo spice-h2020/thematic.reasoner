@@ -44,7 +44,7 @@ public class ThematicReasonerCLI {
 
 			String input = commandLine.getOptionValue(INPUT);
 
-			ThematicReasoner tr = new ThematicReasoner(input);
+			ThematicReasoner tr = new ThematicReasoner(null,null, null);
 
 			OutputStrategy os = OutputStrategy.PRINT;
 
@@ -68,9 +68,9 @@ public class ThematicReasonerCLI {
 
 			}
 
-			tr.setOutputStrategy(os);
-			tr.setOutputFile(out);
-			tr.setBaseURI(baseURI);
+//			tr.setOutputStrategy(os);
+//			tr.setOutputFile(out);
+//			tr.setBaseURI(baseURI);
 
 			tr.run();
 

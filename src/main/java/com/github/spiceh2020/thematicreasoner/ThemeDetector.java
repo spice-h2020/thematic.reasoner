@@ -13,4 +13,11 @@ public interface ThemeDetector {
 	 */
 	public Set<String> detectTopics(String iri);
 
+	/**
+	 * Set the maximum distance of the categories to be included in the neighborhood.
+	 *
+	 * @param distance
+	 */
+	public void setDistance(int distance);
+
 }
